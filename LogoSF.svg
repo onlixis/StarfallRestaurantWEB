@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="200" height="200" role="img" aria-label="Falling star icon with S">
+    <defs>
+      <linearGradient id="tailGrad" x1="0" x2="1">
+        <stop offset="0%" stop-color="#fff7d9" stop-opacity="0.95"/>
+        <stop offset="60%" stop-color="#ffd1a6" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="#ff8f6b" stop-opacity="0"/>
+      </linearGradient>
+      <radialGradient id="starGlow" cx="50%" cy="40%" r="60%">
+        <stop offset="0%" stop-color="#fff9e6" stop-opacity="1"/>
+        <stop offset="60%" stop-color="#ffd2a8" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="#ff8f6b" stop-opacity="0"/>
+      </radialGradient>
+      <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="3" result="b"/>
+        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+      <path id="star" d="M64 14 L73.6 46.8 L108 48.4 L79 68.2 L88 101 L64 82.4 L40 101 L49 68.2 L20 48.4 L54.4 46.8 Z"/>
+    </defs>
+  
+    <rect width="128" height="128" fill="transparent"/>
+    <path d="M8 18 C28 26 46 34 66 46" stroke="url(#tailGrad)" stroke-width="6" stroke-linecap="round" fill="none" opacity="0.95"/>
+    <circle cx="76" cy="52" r="18" fill="url(#starGlow)" opacity="0.75" filter="url(#soft)"/>
+    <use href="#star" fill="#fffaf0" stroke="#ffd9b6" stroke-width="1.2" filter="url(#soft)" transform="translate(12,6) scale(0.8)"/>
+    <text x="64" y="66" font-family="Segoe UI, Roboto, Arial" font-weight="700" font-size="36" fill="#2b1f39"
+          stroke="#ffffff" stroke-width="1" text-anchor="middle" dominant-baseline="middle">S</text>
+    <circle cx="96" cy="54" r="2.4" fill="#fffdf0" opacity="0.95"/>
+  </svg>

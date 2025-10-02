@@ -1,0 +1,19 @@
+body{
+    background-image: url(https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3B5a2p4Y3dwdTJpbjFubXhnbWttZjQwaWVjZ210NXRtcGw2amlrcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jaOXKCxtBPLieRLI0c/giphy.gif);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            height: 100vh;
+            margin: 0;
+}
+#sparkling-background{
+    background-image: url(https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExenZydWpzb2Y3bzdiOTM4cDF5NzJhank5cnM2cDJoZXpkYnp3cHo0byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RHIKETUlUINYvV7CAO/giphy.gif);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            font-family: 'Courier New', Courier, monospace;
+            
+}
+h1,p{
+    font-family: 'Courier New', Courier, monospace;
+}
