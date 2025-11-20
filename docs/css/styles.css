@@ -5,6 +5,7 @@ body {
   background-position: center center;
   height: 100vh;
   margin: 0;
+  padding-top: 45%;
   font-family: "Courier New", Courier, monospace;
 }
 
@@ -19,13 +20,32 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
   font-family: "Courier New", Courier, monospace;
+  width: 100vw;
+  z-index: 3;
+}
+
+#webImg {
+  border-radius: 15px;
+  border-style: solid;
+  border-color: rgb(110, 106, 100);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#webImg:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s;
+}
+#webImg:not(:hover) {
+  transform: scale(1);
+  transition: transform 0.3s;
 }
 
 h1,
 p {
   font-family: "Courier New", Courier, monospace;
+  color: white;
 }
 
+/*------------------------Revealing image------------------------*/
 @keyframes reveal {
   from {
     opacity: 0;
@@ -50,60 +70,94 @@ p {
   animation-range: entry 40% cover 50%;
 }
 
-
+/*------------------------Cards scaling------------------------*/
 .card {
-	--index0: calc(var(--index) - 1); /* 0-based index */
-	--reverse-index: calc(var(--numcards) - var(--index0)); /* reverse index */
-	--reverse-index0: calc(var(--reverse-index) - 1); /* 0-based reverse index */
+  --index0: calc(var(--index) - 1); /* 0-based index */
+  --reverse-index: calc(var(--numcards) - var(--index0)); /* reverse index */
+  --reverse-index0: calc(var(--reverse-index) - 1); /* 0-based reverse index */
 }
 
 @keyframes scale {
-	to {
-		transform:
-			scale(calc(1.1 - calc(0.1 * var(--reverse-index))));
-	}
+  to {
+    transform: scale(calc(1.1 - calc(0.1 * var(--reverse-index))));
+  }
 }
 
 #cards {
-	--numcards: 4;
-	view-timeline-name: --cards-element-scrolls-in-body;
+  --numcards: 4;
+  view-timeline-name: --cards-element-scrolls-in-body;
 }
 
 .card__content {
-	--start-range: calc(var(--index0) / var(--numcards) * 100%);
-	--end-range: calc((var(--index)) / var(--numcards) * 100%);
+  --start-range: calc(var(--index0) / var(--numcards) * 100%);
+  --end-range: calc((var(--index)) / var(--numcards) * 100%);
 
-	animation: linear scale forwards;
-	animation-timeline: --cards-element-scrolls-in-body;
-	animation-range: exit-crossing var(--start-range) exit-crossing var(--end-range);
+  animation: linear scale forwards;
+  animation-timeline: --cards-element-scrolls-in-body;
+  animation-range: exit-crossing var(--start-range) exit-crossing
+    var(--end-range);
 }
-
+/*------------------------Sticky parallax header------------------------*/
 
 @keyframes sticky-parallax-header-move-and-size {
-	from {
-		background-position: 50% 0;
-		height: 100vh;
-		font-size: calc(4vw + 1em);
-	}
-	to {
-		background-position: 50% 100%;
-		background-color: #0b1584;
-		height: 10vh;
-		font-size: 2em;
-    
-	}
+  from {
+    background-position: 50% 0;
+    height: 100vh;
+    font-size: calc(4vw + 1em);
+  }
+  to {
+    background-position: 50% 100%;
+    background-color: #0b1584;
+    height: 10vh;
+    font-size: 2em;
+  }
 }
 
 #sticky-parallax-header {
-	position: fixed;
+  position: fixed;
+  top: 0;
+
+  animation: sticky-parallax-header-move-and-size linear forwards;
+  animation-timeline: scroll();
+  animation-range: 0vh 90vh;
+}
+
+/*------------------------Horisontal scroll------------------------*/
+keyframes move {
+	to {
+		/* Move horizontally so that right edge is aligned against the viewport */
+		transform: translateX(calc(-100% + 100vw));
+	}
+}
+
+#sectionPin {
+	/* Stretch it out, so that we create room for the horizontal scroll animation */
+	height: 500vh;
+	overflow: visible; /* To make position sticky work … */
+
+	view-timeline-name: --section-pin-tl;
+	view-timeline-axis: block;
+}
+
+.pin-wrap-sticky {
+	/* Stick to Top */
+	height: 100vh;
+	width: 100vw;
+	position: sticky;
 	top: 0;
 
-	animation: sticky-parallax-header-move-and-size linear forwards;
-	animation-timeline: scroll();
-	animation-range: 0vh 90vh;
+	width: 100vw;
+	overflow-x: hidden;
 }
 
-body {
-	padding-top: 100vh;
-}
+.pin-wrap {
+	height: 100vh;
+	width: 250vmax;
 
+	/* Hook animation */
+	will-change: transform;
+	animation: linear move forwards;
+
+	/* Link animation to view-timeline */
+	animation-timeline: --section-pin-tl;
+	animation-range: contain 0% contain 100%;
