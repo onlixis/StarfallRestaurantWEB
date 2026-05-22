@@ -5,7 +5,7 @@ body {
   background-position: center center;
   height: 100vh;
   margin: 0;
-  padding-top: 45%;
+  padding-top: 35%;
   font-family: "Courier New", Courier, monospace;
 }
 
@@ -28,7 +28,9 @@ body {
   border-radius: 15px;
   border-style: solid;
   border-color: rgb(110, 106, 100);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow:
+    0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 #webImg:hover {
   transform: scale(1.05);
@@ -97,31 +99,6 @@ p {
   animation-range: exit-crossing var(--start-range) exit-crossing
     var(--end-range);
 }
-/*------------------------Sticky parallax header------------------------*/
-
-@keyframes sticky-parallax-header-move-and-size {
-  from {
-    background-position: 50% 0;
-    height: 100vh;
-    font-size: calc(4vw + 1em);
-  }
-  to {
-    background-position: 50% 100%;
-    background-color: #0b1584;
-    height: 10vh;
-    font-size: 2em;
-  }
-}
-
-#sticky-parallax-header {
-  position: fixed;
-  top: 0;
-
-  animation: sticky-parallax-header-move-and-size linear forwards;
-  animation-timeline: scroll();
-  animation-range: 0vh 90vh;
-}
-
 /*------------------------Horisontal scroll------------------------*/
 @keyframes move {
   to {
@@ -131,10 +108,10 @@ p {
 }
 
 #sectionPin {
-  /* Stretch it out, so that we create room for the horizontal scroll animation */
+  /* Stretch it out, so that it creates room for the horizontal scroll animation */
   height: 200vh;
   width: 1vh;
-  overflow: visible; /* To make position sticky work … */
+  overflow: visible; /* To make position sticky work*/
 
   view-timeline-name: --section-pin-tl;
   view-timeline-axis: block;
@@ -162,4 +139,23 @@ p {
   /* Link animation to view-timeline */
   animation-timeline: --section-pin-tl;
   animation-range: contain 0% contain 100%;
+}
+
+/*------------------------Glowing text------------------------*/
+.shimmer-text {
+  font-weight: 700;
+  background: linear-gradient(90deg, #353535 0%, #fff 40%, #353535 80%);
+  background-size: 200%;
+  color: transparent;
+  -webkit-background-clip: text;
+  animation: shimmer 5s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }

@@ -10,7 +10,8 @@
     crossorigin="anonymous" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
     crossorigin="anonymous"></script>
-  <script src="index.html"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="app.js"></script>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
@@ -53,14 +54,35 @@
   </nav>
 
   <div class="container text-center " style="margin: 0% 9% 10% 9%; position: relative;">
-    <h1 class="revealing-image text-white">Welcome to Starfall Restaurant</h1>
-    <p class="revealing-image text-white text-start" style="margin-left: 18%;">Make your gastronomy wishes come true!
-    </p>
+    <h2 class="shimmer-text">scroll down</h1>
+      <p></p>
+      <svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 24 24' class="dot">
+        <title>align_arrow_down_line</title>
+        <g id="align_arrow_down_line" fill='none' fill-rule='nonzero'>
+          <path
+            d='M24 0v24H0V0h24ZM12.594 23.258l-.012.002-.071.035-.02.004-.014-.004-.071-.036c-.01-.003-.019 0-.024.006l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.016-.018Zm.264-.113-.014.002-.184.093-.01.01-.003.011.018.43.005.012.008.008.201.092c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.003-.011.018-.43-.003-.012-.01-.01-.184-.092Z' />
+          <path fill='#FFFFFFFF'
+            d='M16.95 15.297a1 1 0 0 0-1.415 0L13 17.833V9a1 1 0 0 0-2 0v8.833l-2.536-2.536a1 1 0 0 0-1.414 1.415l4.243 4.242a1 1 0 0 0 1.414 0l4.243-4.242a1 1 0 0 0 0-1.415ZM5 3a1 1 0 1 0 0 2h14a1 1 0 1 0 0-2H5Z' />
+        </g>
+      </svg>
+      <h1 class="revealing-image text-white">Welcome to Starfall Restaurant</h1>
+      <script>
+        gsap.to(".dot", {
+          y: -20,
+          duration: 1,
+          yoyo: true,
+          repeat: -1,
+          ease: "power1.inOut"
+        });
+      </script>
+      <p class="revealing-image text-white text-start" style="margin-left: 18%;">Make your gastronomy wishes come true!
+      </p>
   </div>
 
-  <div class="d-flex align-items-center">
+  <div class=" align-items-center"
+    style="display: grid; grid-template-columns:2fr 2fr;  justify-content: end;justify-items: center; ">
     <img src="sources\StarFallPic4.jpg" class="img-fluid" alt="picture of a restaurant 1" id="webImg" />
-    <div class="container p-5 mb-4 bg-dark rounded-3 " style="width: 50%; margin: 3%;">
+    <div class="container p-5 mb-4 bg-dark rounded-3 ">
       <div class="container-fluid py-5">
         <div class="text-start">
           <h1>Unimaginable expirience</h1>
@@ -82,11 +104,12 @@
         <img src="sources\dish4.jpg" alt="dish4" class="img-fluid" />
         <img src="sources\placeholder.bmp" alt="dish4" class="img-fluid" />
 
+        </script>
       </div>
     </div>
   </section>
   <section>
-    <div class="d-flex align-items-center">
+    <div class=" align-items-center">
       <div class="container p-5 mb-4 bg-dark rounded-3 ">
         <div class="container-fluid py-5">
           <div class="text-start">
@@ -131,6 +154,7 @@
         © 2024 Starfall Restaurant
       </div>
       <div>
+
       </div>
     </div>
 </body>
